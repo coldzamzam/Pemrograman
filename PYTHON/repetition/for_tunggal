@@ -1,0 +1,5 @@
+# Perulangan dengan for
+ulang = int(input('Banyak pengulangan: '))
+for i in range(ulang):
+    print ('Perulangan ke-%d'%i)
+print ('hello')

@@ -1,0 +1,17 @@
+#Perbandingan nilai variabel
+#Input variabel
+x = eval(input('Input nilai x = '))
+y = eval(input('Input nilai y = '))
+
+#Output variabel awal
+print ('Bilangan pertama x = %d\nBilangan kedua y = %d'%(x, y))
+
+#Penentuan variabel yang lebih besar
+if x > y: 
+    print('X = ', x)
+    print('Bilangan terbesar.')
+elif y > x:
+    print('Y = ', y)
+    print('Bilangan terbesar.')
+elif x == y:
+    print('Kedua bilangan sama besar, yaitu', x)

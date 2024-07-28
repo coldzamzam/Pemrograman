@@ -1,0 +1,6 @@
+import math
+#Menghitung Luas Tabung#
+r=eval(input('Jari-jari alas: '))
+t=eval(input('Tinggi tabung: '))
+LuasTabung=math.pi*r*r*t
+print('Luas tabung = %3f', LuasTabung)

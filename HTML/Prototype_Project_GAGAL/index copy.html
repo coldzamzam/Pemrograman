@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Ordering System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Ordering System</h1>
+
+        <!-- Customer Form -->
+        <div id="customer-form">
+            <h2>Customer Details</h2>
+            <input type="text" id="customer-name" placeholder="Name">
+            <input type="text" id="customer-phone" placeholder="Phone">
+        </div>
+
+        <!-- Menu -->
+        <h2>Menu</h2>
+        <div class="food">
+            <div class="food-item">
+                <img src="../assets/ayam-bakar.jpeg" alt="">
+                <p>Ayam Bakar</p>
+                <button class="tambah" onclick="addToCart('Ayam Bakar', 12000)">TAMBAH</button>
+            </div>
+            <div class="food-item">
+                <img src="../assets/ayam-geprek-sambal-hijau.jpeg" alt="">
+                <p>Ayam Geprek Sambal Hijau</p>
+                <button class="tambah" onclick="addToCart('Ayam Geprek Sambal Hijau', 12000)">TAMBAH</button>
+            </div>
+            <div class="food-item">
+                <img src="../assets/ayam-geprek-sambal-jontor.jpeg" alt="">
+                <p>Ayam Geprek Sambal Jontor</p>
+                <button class="tambah" onclick="addToCart('Ayam Geprek Sambal Jontor', 12000)">TAMBAH</button>
+            </div>
+            <div class="food-item">
+                <img src="../assets/chicken-barbeque.jpeg" alt="">
+                <p>Chicken Barbeque</p>
+                <button class="tambah" onclick="addToCart('Chicken Barbeque', 15000)">TAMBAH</button>
+            </div>
+            <div class="food-item">
+                <img src="../assets/chicken-karage.jpeg" alt="">
+                <p>Chicken Karage</p>
+                <button class="tambah" onclick="addToCart('Chicken Karage', 12000)">TAMBAH</button>
+            </div>
+            <div class="food-item">
+                <img src="../assets/sate-kesamba.jpeg" alt="">
+                <p>Sate Kesamba</p>
+                <button class="tambah" onclick="addToCart('Sate Kesamba', 15000)">TAMBAH</button>
+            </div>
+            <div class="food-item">
+                <img src="../assets/sate-taichan.jpeg" alt="">
+                <p>Sate Taichan</p>
+                <button class="tambah" onclick="addToCart('Sate Taichan', 15000)">TAMBAH</button>
+            </div>
+            <div class="food-item">
+                <img src="../assets/teriyaki-pedas.jpeg" alt="">
+                <p>Teriyaki Pedas</p>
+                <button class="tambah" onclick="addToCart('Teriyaki Pedas', 15000)">TAMBAH</button>
+            </div>
+        </div>
+
+        <!-- Order Button -->
+        <div class="container">
+            <button class="orderBtn" onclick="openOrderConfirmationModal()">ORDER</button>
+        </div>
+
+        <!-- Cart -->
+        <div class="container">
+            <div id="cart"></div>
+        </div>
+
+        <!-- Order Summary -->
+        <div id="order-summary"></div>
+
+        <!-- Search Form -->
+        <div>
+            <h2>Search Order</h2>
+            <form id="search-form">
+                <input type="text" id="order-code" placeholder="Enter Order Code">
+                <button type="submit">Search</button>
+            </form>
+            <div id="search-result"></div>
+        </div>
+
+        <!-- Admin Login -->
+        <div>
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="admin-dashboard"></div>
+
+        <!-- Modals -->
+        <!-- Order Confirmation Modal -->
+        <dialog id="order-confirmation-modal">
+            <form method="dialog">
+                <h2>Order Confirmation</h2>
+                <p id="customer-details"></p>
+                <table id="order-summary-table">
+                    <tr>
+                        <th>Menu</th>
+                        <th>Quantity</th>
+                    </tr>
+                </table>
+                <p>Order Code: <span id="order-code-display"></span></p>
+                <button id="confirm-order-btn" type="button">Confirm</button>
+                <button id="cancel-order-btn" type="button">Cancel</button>
+            </form>
+        </dialog>
+
+        <!-- Admin Complete Order Modal -->
+        <dialog id="complete-order-modal">
+            <form method="dialog">
+                <h2>Complete Order</h2>
+                <p id="complete-order-details"></p>
+                <table id="complete-order-summary-table">
+                    <tr>
+                        <th>Menu</th>
+                        <th>Quantity</th>
+                    </tr>
+                </table>
+                <button id="complete-order-btn" type="button">Complete Order</button>
+                <button id="cancel-complete-btn" type="button">Cancel</button>
+            </form>
+        </dialog>
+    </div>
+
+    <script>
+        // Modals
+        const orderConfirmationModal = document.getElementById('order-confirmation-modal');
+        const completeOrderModal = document.getElementById('complete-order-modal');
+
+        // Load orders from localStorage
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+        let incoming = JSON.parse(localStorage.getItem('incoming')) || [];
+        let cart = [];
+
+        // Function to generate unique order code
+        function generateOrderCode() {
+            return Math.random().toString(36).substr(2, 5);
+        }
+
+        // Function to add item to cart
+        function addToCart(menu, price) {
+            const existingItem = cart.find(item => item.menu === menu);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ menu, price, quantity: 1 });
+            }
+            displayCart();
+        }
+
+        // Function to display cart
+        function displayCart() {
+            const cartDiv = document.getElementById('cart');
+            if (cart.length === 0) {
+                cartDiv.innerHTML = '<h2>Cart is empty</h2>';
+                return;
+            }
+            cartDiv.innerHTML = `
+                <h2>Cart</h2>
+                <table>
+                    <tr>
+                        <th>Menu</th>
+                        <th>Quantity</th>
+                    </tr>
+                    ${cart.map(item => `
+                        <tr>
+                            <td>${item.menu}</td>
+                            <td>${item.quantity}</td>
+                        </tr>
+                    `).join('')}
+                </table>
+                <button onclick="openOrderConfirmationModal()">Order</button>
+            `;
+        }
+
+        // Function to open order confirmation modal
+        function openOrderConfirmationModal() {
+            const name = document.getElementById('customer-name').value;
+            const phone = document.getElementById('customer-phone').value;
+            const orderCode = generateOrderCode();
+            
+            document.getElementById('customer-details').innerText = `Name: ${name}\nPhone: ${phone}`;
+            document.getElementById('order-code-display').innerText = orderCode;
+            
+            const orderSummaryTable = document.getElementById('order-summary-table');
+            orderSummaryTable.innerHTML = `
+                <tr>
+                    <th>Menu</th>
+                    <th>Quantity</th>
+                </tr>
+                ${cart.map(item => `
+                    <tr>
+                        <td>${item.menu}</td>
+                        <td>${item.quantity}</td>
+                    </tr>
+                `).join('')}
+            `;
+            
+            orderConfirmationModal.showModal();
+        }
+
+        // Function to place order
+        function placeOrder() {
+            const name = document.getElementById('customer-name').value;
+            const phone = document.getElementById('customer-phone').value;
+            const orderCode = document.getElementById('order-code-display').innerText;
+            const orderData = { code: orderCode, name, phone, items: cart, completed: false };
+            incoming.push(orderData);
+            localStorage.setItem('incoming', JSON.stringify(incoming));
+            cart = [];
+            displayCart();
+            orderConfirmationModal.close();
+            alert(`Order placed! Your order code is: ${orderCode}`);
+        }
+
+        // Initialize the page
+        displayCart();
+
+        // Modal buttons event listeners
+        document.getElementById('confirm-order-btn').addEventListener('click', placeOrder);
+        document.getElementById('cancel-order-btn').addEventListener('click', () => orderConfirmationModal.close());
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+body {
+  background-color: aquamarine;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.pengantar,
+h2 {
+  text-align: center;
+}
+.headertable {
+  color: rgb(64, 14, 88);
+  background-color: gold;
+}
+.identity {
+  background-color: crimson;
+  width: 800px;
+  border-color:rgb(9, 9, 83);
+}
+tr {
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+}
+#foto {
+  height: 200px;
+  width: 200px;
+}

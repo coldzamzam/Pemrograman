@@ -1,0 +1,14 @@
+#Membuat fungsi
+def luasPersegiPanjang(panjang, lebar):
+    luas = panjang * lebar
+    return luas
+
+def volumeBalok(panjang, lebar, tinggi):
+    volume = luasPersegiPanjang(panjang, lebar) * tinggi
+    return volume
+
+x = float(input("Masukkan nilai panjang : "))
+y = float(input("Masukkan nilai lebar : "))
+z = float(input("Masukkan nilai tinggi : "))
+
+print ("Luas persegi panjang = %.2f"%volumeBalok(x, y, z))

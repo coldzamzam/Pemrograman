@@ -1,0 +1,44 @@
+# Menentukan gaji karyawan
+#Input identitas karyawan
+nama = input('Nama Anda: ')
+NIK = input('NIK Anda: ')
+jabatan = input('Jabatan Anda(manajer/staf/honorer): ')
+golongan = input('Golongan(A/B/C): ')
+
+#Penentuan gaji jika jabatannya manajer
+if jabatan == 'manajer':
+    gaji = 20000000
+    if golongan == 'A':
+        bonus = 3000000
+    elif golongan == 'B':
+        bonus = 5000000
+    elif golongan == 'C':
+        bonus = 7000000
+
+#Penentuan gaji jika jabatannya staf
+elif jabatan == 'staf':
+    gaji = 12000000
+    if golongan == 'A':
+        bonus = 2000000
+    elif golongan == 'B':
+        bonus = 3000000
+    elif golongan == 'C':
+        bonus = 5000000
+
+#Penentuan gaji jika jabatannya honorer
+elif jabatan == 'staf':
+    gaji = 7000000
+    if golongan == 'A':
+        bonus = 1000000
+    elif golongan == 'B':
+        bonus = 2000000
+    elif golongan == 'C':
+        bonus = 3000000
+
+#Penjumlahan gaji dan bonus
+total = gaji + bonus
+
+#Ouput gaji, bonus, dan total gaji
+print('Gaji = Rp.', gaji)
+print('Bonus = Rp.', bonus)
+print('Total = Rp.', total)

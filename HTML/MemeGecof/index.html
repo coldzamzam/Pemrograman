@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AYO DUKUNG GECOF</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>APAKAH KAMU SUKA DENGAN GECOF?</h2>
+    <div class="click">
+      <button id="prank-button">NO</button>
+      <button id="right-button" onclick="rightChoice()">YES</button>
+    </div>
+  </div>
+  
+
+  <script>
+    const button = document.getElementById("prank-button");
+
+    let clickCount = 0; // counter to track the number of clicks
+    const maxClicks = 6; // threshold to move the button off the screen
+    const minX = 0; // minimum x-coordinate
+    const maxX = 500; // maximum x-coordinate
+    const minY = 0; // minimum y-coordinate
+    const maxY = 500; // maximum y-coordinate
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    button.addEventListener("click", function() {
+      clickCount++; // increment the click counter
+
+      if (clickCount < maxClicks) {
+        // Generate a random x-coordinate within the range [minX, maxX]
+        const newX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+
+        // Generate a random y-coordinate within the range [minY, maxY]
+        const newY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+        // Update the button's position using CSS transforms
+        button.style.transform = `translate(${newX}px, ${newY}px)`;
+      } else {
+        // Move the button off the screen after maxClicks
+        button.style.transform = `translate(${screenWidth}px, ${screenHeight}px)`;
+      }
+    });
+
+    function rightChoice(){
+      window.location.href = "gecof.html";
+    }
+  </script>
+</body>
+</html>

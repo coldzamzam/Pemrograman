@@ -1,0 +1,18 @@
+#Variabel global dan lokal
+nama = "Politeknik Negeri Jakarta"
+singkatan = "PNJ"
+
+def data():
+    #Variabel lokal
+    nama = "Jurusan teknik Informatika dan Kompuer"
+    singkatan = "JTIK"
+    #Mengakses variabel lokal
+    print ("Nama : %s" %nama)
+    print ("Singkatan : %s" %singkatan)
+
+#Mengakses variabel global
+print ("Nama : %s" %nama)
+print ("Singkatan : %s" %singkatan)
+
+#Memanggil fungsi data
+data()

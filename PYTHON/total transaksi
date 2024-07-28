@@ -1,0 +1,6 @@
+code=input("Kode barang: ")
+name=input("Nama barang: ")
+HargaSatuan=float(input("Harga Satuan: "))
+stock=int(input("Stok: "))
+print('Kode barang = %s\nNama barang = %s\nHarga satuan = %s\nStok = %d'%(code, name, HargaSatuan, stock))
+

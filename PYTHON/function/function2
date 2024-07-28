@@ -1,0 +1,13 @@
+#Program penghitungan luas persegi
+def luasPersegi (sisi):
+    luas = sisi*sisi
+    return luas
+
+#Fungsi luasPersegi dalam fungsi volumeKubus
+def volumeKubus (sisi):
+    volume = luasPersegi (sisi) * sisi
+    return volume
+
+x = float(input("Silakan input nilai sisi : "))
+
+print ("Volume kubus adalah = %.2f"%volumeKubus(x))

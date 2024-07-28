@@ -1,0 +1,98 @@
+* {
+    font-family: tahoma;
+}
+.framehome {
+    background-color: #f1e578;
+}
+.header, .header-page {
+    display: flex;
+    justify-content: center;
+    background-color:cornflowerblue;
+}
+.header-page {
+    border-style: ridge;
+    margin-bottom: 20px;
+}
+.header-title, .page-title {
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    color: cornsilk;
+    text-transform:uppercase;
+    letter-spacing: 8px;
+}
+.page-title {
+    margin: 20px;
+}
+.navbody {
+    background-color:#2285c7;
+}
+.navh2 {
+    display: flex;
+    justify-content: center;
+    border-style: none none ridge none;
+    border-bottom-color: azure
+}
+.menu:link,.menu:visited{
+    display:grid; font-weight:bold;
+    color:#FFFFFF; background-color:#2285c7;
+    text-align:center;
+    justify-content: center;
+    padding:20px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+.menu:hover,.menu:active {
+    background-color:#1c65c4;
+} 
+.headline {
+    display: grid;
+    border-style: ridge;
+    border-radius: 1px;
+    border-color: #161616;
+    margin: 5px;
+    padding: 20px;
+    background-color: #f89696;
+}
+.headline:hover,.headline:active {
+    background-color:#f86cb9;
+}
+.title-headline, .cp {
+    font-size: 15px;
+    text-align:justify ;
+    text-decoration: none;
+    font-weight: bold;
+    color: #161616;
+    text-transform:uppercase;
+}
+.contacts:link, .contacts:visited {
+    display: grid;
+    background-color: #FFFFFF;
+    border: groove #f1e46c;
+    width: 50%;
+    margin: 10px 25% 10px 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.contacts:hover, .contacts:active {
+    background-color: #f5e65f;
+}
+.tableprofile {
+    border: groove #161616;
+    display: grid;
+    background-color: rgb(153, 153, 150);
+}
+.penulisjudul, .tanggal {
+    text-align: right;
+    color: rgb(37, 27, 129);
+    font-size: 0.8rem;
+}
+.keteranganberita {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: bold;
+}

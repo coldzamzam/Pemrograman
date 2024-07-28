@@ -1,0 +1,9 @@
+a=eval(input("Angka ke-1: "))
+b=eval(input("Angka ke-2: "))
+c=eval(input("Angka ke-3: "))
+d=eval(input("Angka ke-4: "))
+e=eval(input("Angka ke-5: "))
+total=a+b+c+d+e
+print("Total=",total)
+avg=total/5
+print("Average=",avg)

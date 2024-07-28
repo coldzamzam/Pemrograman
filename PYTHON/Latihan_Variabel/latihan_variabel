@@ -1,0 +1,27 @@
+print('Soal 1: Menghitung rata-rata dari 3 bilangan bulat sembarang')
+a1=int(input('Bilangan ke-1: '))
+a2=int(input('Bilangan ke-2: '))
+a3=int(input('Bilangan ke-3: '))
+total=a1+a2+a3
+print('Total = ', total)
+avg=total/3
+print('Average = ', avg)
+
+print('Soal 2: Menghitung nilai fungsi f(x) = 2x3 + 2x + 15/x jika x merupakan bilangan bulat sembarang')
+x=int(input('x = '))
+fx=2*x*x*x+2*x+15/x
+print('f(x)=', fx)
+
+print('Melakukan tukar nilai A,B,C,D menjadi B,D,A,C jika A,B,C,D merupakan bilangan desimal sembarang')
+A=float(input('A= '))
+B=float(input('B= '))
+C=float(input('C= '))
+D=float(input('D= '))
+A1=B
+B1=D
+C1=A
+D1=C
+print('A =', A1)
+print('B =', B1)
+print('C =', C1)
+print('D =', D1)

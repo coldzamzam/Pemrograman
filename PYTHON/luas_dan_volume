@@ -1,0 +1,130 @@
+#import library
+import math
+
+#function untuk luas persegi
+def luas_persegi (s):
+    luas = s * s 
+    return luas
+
+#function untuk luas persegi panjang
+def luas_persegi_panjang (p, l):
+    luas = p * l
+    return luas
+
+#function untuk luas segitiga
+def luas_segitiga (a, t):
+    luas = 1/2 * a * t
+    return luas
+
+#function untuk luas lingkaran
+def luas_lingkaran (r):
+    luas = math.pi * r * r
+    return luas
+
+#function untuk luas trapesium
+def luas_trapesium(x1, x2, t):
+    luas = 1/2 * (x1 + x2) * t
+    return luas
+
+#function untuk luas jajar genjang
+def luas_jajar_genjang(a, t):
+    luas = a * t
+    return luas
+
+#function untuk volume balok
+def volume_balok(p, l, t):
+    volume = luas_persegi_panjang(p, l) * t
+    return volume
+
+#function untuk volume kubus
+def volume_kubus (s):
+    volume = luas_persegi (s) * s
+    return volume
+
+#function untuk volume tabung
+def volume_tabung (r, t):
+    volume = luas_lingkaran (r) * t
+    return volume
+
+#function untuk volume kerucut
+def volume_kerucut (r, t):
+    volume = 1/3 * luas_lingkaran (r) * t
+    return volume
+
+
+#Input key 'y' untuk masuk ke dalam program
+program = input("Klik 'y' untuk melakukan perhitungan: ")
+
+while program == "y":
+    
+    #Tampilan pilihan rumus yang ingin digunakan
+    print ("""
+    Rumus-rumus yang tersedia:
+    1. Luas Persegi
+    2. Luas Persegi Panjang
+    3. Luas Segitiga
+    4. Luas Lingkaran
+    5. Luas Trapesium
+    6. Luas Jajar Genjang
+    7. Volume Balok
+    8. Volume Kubus
+    9. Volume Tabung
+    10. Volume Kerucut
+        """)
+    
+    #Input oleh user untuk memilih rumus yang ingin digunakan
+    rumus = int(input("Pilihlah rumus yang ingin anda gunakan dengan meng-input angka yang sesuai(1-10) : "))
+    print (" ")
+
+    #pemanggilan function luas dan input nilai
+    if rumus == 1:
+        x = float(input("Input nilai sisi : "))
+        print ("Luas Persegi = %.2f" %luas_persegi(x))
+    elif rumus == 2:
+        x = float(input("Input nilai panjang : "))
+        y = float(input("Input nilai lebar : "))
+        print ("Luas Persegi Panjang = %.2f" %luas_persegi_panjang(x, y))
+    elif rumus == 3:
+        x = float(input("Input nilai alas : "))
+        y = float(input("Input nilai tinggi : "))
+        print ("Luas Segitiga = %.2f" %luas_segitiga(x, y))
+    elif rumus == 4:
+        x = float(input("Input nilai jari-jari : "))
+        print ("Luas Lingkaran = %.2f" %luas_lingkaran(x))
+    elif rumus == 5:
+        x = float(input("Input nilai sisi atas : "))
+        y = float(input("Input nilai sisi bawah : "))
+        z = float(input("Input nilai tinggi : "))
+        print ("Luas Trapesium = %.2f" %luas_trapesium(x, y, z))
+    elif rumus == 6:
+        x = float(input("Input nilai alas : "))
+        y = float(input("Input nilai tinggi : "))
+        print ("Luas Jajar Genjang = %.2f" %luas_jajar_genjang(x, y))
+    
+    #pemanggilan function volume dan input nilai
+    elif rumus == 7:
+        x = float(input("Input nilai panjang : "))
+        y = float(input("Input nilai lebar : "))
+        z = float(input("Input nilai tinggi : "))
+        print ("Luas Balok = %.2f" %volume_balok(x, y, z))
+    if rumus == 8:
+        x = float(input("Input nilai rusuk : "))
+        print ("Luas Kubus = %.2f" %volume_kubus(x))
+    elif rumus == 9:
+        x = float(input("Input nilai jari-jari : "))
+        y = float(input("Input nilai tinggi : "))
+        print ("Luas Persegi Panjang = %.2f" %volume_tabung(x, y))
+    elif rumus == 10:
+        x = float(input("Input nilai jari-jari : "))
+        y = float(input("Input nilai tinggi : "))
+        print ("Luas Persegi Panjang = %.2f" %volume_kerucut(x, y))
+
+    #input untuk memastikan user ingin lanjut atau sudah selesai menggunakan program
+    menu = input("Apakah anda ingin melakukan perhitungan lagi? (y/n) : ")
+
+    #proses untuk menghentikan program jika sudah selesai digunakan
+    if menu != "y":
+        break
+    
+
+

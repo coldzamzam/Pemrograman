@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 130%;
+}
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex; /* Add this to center the container vertically */
+  flex-direction: column; /* Add this to center the container vertically */
+  align-items: center; /* Add this to center the container vertically */
+  justify-content: center; /* Add this to center the container vertically */
+  text-align: center;
+}
+.container h1 {
+  font-size: 300%;
+}
+.click {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Add this to center the buttons horizontally */
+}
+button {
+  display: block;
+  background-color: rgba(167, 139, 250, 1);
+  padding: 0.75rem;
+  text-align: center;
+  color: rgba(17, 24, 39, 1);
+  border: 1px solid rgba(55, 65, 81, 1);
+  border-radius: 0.375rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  transition: ease 0.2s;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #182b45;
+  color: white;
+}
+#prank-button {
+  position: relative;
+  transition: transform 0.5s; /* Add a transition effect to the button */
+}

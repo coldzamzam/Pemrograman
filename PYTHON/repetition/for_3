@@ -1,0 +1,21 @@
+# Penjumlahan bilangan berurutan
+#Input batas awal dan akhir
+awal = int(input('Set nilai awal : '))
+akhir = int(input('Set nilai akhir : '))
+
+#Inisialisasi nilai awal
+count = 0
+summ = 0
+
+#Output
+print ('Bilangan antara %d dan %d'%(awal, akhir))
+
+#Proses looping dan penjumlahan bilangan
+for i in range (awal, akhir+1):
+    print (i, end=' ')
+    count += 1
+    summ += i
+
+#Output
+print ('\nBilangan di atas ada %d bilangan'%count)
+print ('Jumlah semua bilangan di atas adalah %d'%summ)

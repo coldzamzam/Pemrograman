@@ -1,0 +1,17 @@
+
+NamaLengkap=input("Nama Lengkap: ")
+Alamat=input("Alamat: ")
+Umur=int(input("Umur: "))
+TempatLahir=input("Tempat Lahir: ")
+TanggalLahir=int(input("Tanggal Lahir: "))
+BulanLahir=int(input("Bulan Lahir: "))
+TahunLahir=int(input("Tahun Lahir: "))
+IPK=eval(input("IPK: "))
+
+print("BIODATA")
+print("Nama Lengkap:", NamaLengkap)
+print("Alamat:", Alamat)
+print("Umur:", Umur, "tahun")
+print("Tempat Lahir:", TempatLahir)
+print("Tanggal Lahir:", TanggalLahir,"-",BulanLahir,"-",TahunLahir)
+print("IPK:", IPK)
